@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     heroku = {
-      source = "heroku/heroku"
+      source  = "heroku/heroku"
       version = "4.8.0"
     }
   }
@@ -13,7 +13,7 @@ provider "heroku" {
 resource "heroku_app" "default" {
   name   = "berviantoleo"
   region = "us"
-  stack = "container"
+  stack  = "container"
 }
 
 resource "heroku_addon" "database" {
