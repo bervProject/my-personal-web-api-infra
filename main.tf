@@ -32,7 +32,7 @@ resource "heroku_build" "build_app" {
   app = heroku_app.default.name
 
   source {
-    url     = "https://github.com/bervProject/PersonalWebApi/archive/refs/tags/v0.1.1.tar.gz"
-    version = "0.1.1"
+    url     = "https://github.com/bervProject/MyPersonalWebAPI/archive/refs/tags/v0.2.0.tar.gz"
+    version = "0.2.0"
   }
 }
