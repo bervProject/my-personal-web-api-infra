@@ -5,6 +5,13 @@ terraform {
       version = "4.8.0"
     }
   }
+
+  cloud {
+    organization = "bervproject"
+    workspaces {
+      name = "my-personal-web-api-infra"
+    }
+  }
 }
 
 provider "heroku" {
