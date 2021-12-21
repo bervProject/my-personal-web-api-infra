@@ -11,10 +11,9 @@ provider "heroku" {
 }
 
 resource "heroku_app" "default" {
-  name    = "berviantoleo"
-  region  = "us"
-  stack   = "container"
-  git_url = "https://github.com/bervProject/my-telegram-bot"
+  name   = "berviantoleo"
+  region = "us"
+  stack  = "container"
 }
 
 resource "heroku_addon" "database" {
