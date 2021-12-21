@@ -32,8 +32,7 @@ resource "heroku_build" "build_app" {
   app = heroku_app.default.name
 
   source {
-    # This app uses a community buildpack, set it in `buildpacks` above.
-    url     = "https://github.com/bervProject/my-telegram-bot/archive/refs/tags/v1.0.0.tar.gz"
-    version = "v1.0.0"
+    url     = "https://github.com/bervProject/PersonalWebApi/archive/refs/tags/v0.1.0.tar.gz"
+    version = "v0.1.0"
   }
 }
