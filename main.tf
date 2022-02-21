@@ -18,18 +18,18 @@ provider "heroku" {
 }
 
 resource "heroku_app" "default" {
-  name   = "berviantoleo"
+  id   = "berviantoleo"
   region = "us"
   stack  = "container"
 }
 
 resource "heroku_addon" "database" {
-  app  = heroku_app.default.name
+  app_id  = heroku_app.default.id
   plan = "heroku-postgresql:hobby-dev"
 }
 
 resource "heroku_build" "build_app" {
-  app = heroku_app.default.name
+  app_id = heroku_app.default.id
 
   source {
     url     = "https://github.com/bervProject/MyPersonalWebAPI/archive/refs/tags/v0.2.0.tar.gz"
