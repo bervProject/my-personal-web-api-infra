@@ -18,14 +18,14 @@ provider "heroku" {
 }
 
 resource "heroku_app" "default" {
-  id   = "berviantoleo"
+  id     = "berviantoleo"
   region = "us"
   stack  = "container"
 }
 
 resource "heroku_addon" "database" {
-  app_id  = heroku_app.default.id
-  plan = "heroku-postgresql:hobby-dev"
+  app_id = heroku_app.default.id
+  plan   = "heroku-postgresql:hobby-dev"
 }
 
 resource "heroku_build" "build_app" {
