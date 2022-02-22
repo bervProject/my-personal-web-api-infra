@@ -2,7 +2,7 @@ terraform {
   required_providers {
     heroku = {
       source  = "heroku/heroku"
-      version = "4.8.0"
+      version = "5.0.0"
     }
   }
 
@@ -24,12 +24,12 @@ resource "heroku_app" "default" {
 }
 
 resource "heroku_addon" "database" {
-  app  = heroku_app.default.name
-  plan = "heroku-postgresql:hobby-dev"
+  app_id = heroku_app.default.id
+  plan   = "heroku-postgresql:hobby-dev"
 }
 
 resource "heroku_build" "build_app" {
-  app = heroku_app.default.name
+  app_id = heroku_app.default.id
 
   source {
     url     = "https://github.com/bervProject/MyPersonalWebAPI/archive/refs/tags/v0.2.0.tar.gz"
