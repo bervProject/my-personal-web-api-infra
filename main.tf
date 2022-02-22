@@ -18,7 +18,7 @@ provider "heroku" {
 }
 
 resource "heroku_app" "default" {
-  id     = "berviantoleo"
+  name   = "berviantoleo"
   region = "us"
   stack  = "container"
 }
