@@ -97,9 +97,8 @@ namespace MyPersonalWebApiInfra
             {
                 TypeName = "Mutation",
                 FieldName = "deleteExperience",
-                RequestMappingTemplate = MappingTemplate.DynamoDbDeleteItem("id",
-                    Values.Attribute("experienceId").Is("experienceId").RenderVariables()),
-                ResponseMappingTemplate = MappingTemplate.DynamoDbResultItem()
+                RequestMappingTemplate = MappingTemplate.DynamoDbDeleteItem("id", "experienceId"),
+                ResponseMappingTemplate = MappingTemplate.FromString("$util.toJson($ctx.result)")
             });
         }
     }
