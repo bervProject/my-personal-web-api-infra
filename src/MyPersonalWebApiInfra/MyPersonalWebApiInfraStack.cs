@@ -3,7 +3,6 @@ using Amazon.CDK.AWS.AppSync.Alpha;
 using Amazon.CDK.AWS.DynamoDB;
 using Amazon.CDK.AWS.IAM;
 using Constructs;
-using System.Collections.Generic;
 
 namespace MyPersonalWebApiInfra
 {
@@ -12,6 +11,7 @@ namespace MyPersonalWebApiInfra
         internal MyPersonalWebApiInfraStack(Construct scope, string id, IStackProps props = null) : base(scope, id,
             props)
         {
+            // AppSync
             var api = new GraphqlApi(this, "api", new GraphqlApiProps
             {
                 Name = "berv-api",
@@ -19,6 +19,7 @@ namespace MyPersonalWebApiInfra
                 XrayEnabled = true,
             });
 
+            // Dynamo DB
             var experienceTable = new Table(this, "berv-experiences", new TableProps
             {
                 BillingMode = BillingMode.PAY_PER_REQUEST,
@@ -29,16 +30,21 @@ namespace MyPersonalWebApiInfra
                 },
             });
 
+            // IAM Role
             var role = new Role(this, "Role", new RoleProps
             {
                 AssumedBy = new ServicePrincipal("lambda.amazonaws.com")
             });
 
+            // AppSync apply IAM to some mutations
             api.GrantMutation(role, "addExperience");
             api.GrantMutation(role, "updateExperience");
             api.GrantMutation(role, "deleteExperience");
 
+            // Add Dynamo DB as DataSource of AppSync
             var dataSource = api.AddDynamoDbDataSource("experience", experienceTable);
+            
+            // Add Resolver for Get All Experiences
             dataSource.CreateResolver(new BaseResolverProps
             {
                 TypeName = "Query",
@@ -47,6 +53,7 @@ namespace MyPersonalWebApiInfra
                 ResponseMappingTemplate = MappingTemplate.DynamoDbResultList(),
             });
 
+            // Add Resolver for Get Experience by Id
             dataSource.CreateResolver(new BaseResolverProps
             {
                 TypeName = "Query",
@@ -55,6 +62,7 @@ namespace MyPersonalWebApiInfra
                 ResponseMappingTemplate = MappingTemplate.DynamoDbResultItem(),
             });
 
+            // Add Resolver for Create Experience
             dataSource.CreateResolver(new BaseResolverProps
             {
                 TypeName = "Mutation",
@@ -64,6 +72,7 @@ namespace MyPersonalWebApiInfra
                 ResponseMappingTemplate = MappingTemplate.DynamoDbResultItem()
             });
 
+            // Add Resolver for Update an Experience
             dataSource.CreateResolver(new BaseResolverProps
             {
                 TypeName = "Mutation",
@@ -83,6 +92,7 @@ namespace MyPersonalWebApiInfra
                 ResponseMappingTemplate = MappingTemplate.DynamoDbResultItem()
             });
 
+            // Add Resolver for Delete an Experience
             dataSource.CreateResolver(new BaseResolverProps
             {
                 TypeName = "Mutation",
