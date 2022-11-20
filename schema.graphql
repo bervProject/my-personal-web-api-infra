@@ -1,0 +1,24 @@
+﻿type Experience {
+  id: ID!
+  title: String!
+}
+
+input ExperienceInput {
+  title: String!
+}
+
+input UpdateExperienceInput {
+  id: ID!
+  title: String
+}
+
+type Query {
+  getExperienceById(experienceId: String!): Experience
+  getExperiences: [Experience]
+}
+
+type Mutation {
+  addExperience(input: ExperienceInput!): Experience
+  updateExperience(input: UpdateExperienceInput!): Experience
+  deleteExperience(experienceId: String!): String
+}
