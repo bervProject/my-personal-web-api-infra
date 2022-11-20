@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <!-- Roll forward to future major versions of the netcoreapp as needed -->
+    <RollForward>Major</RollForward>
+    <LangVersion>11</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="schema.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.CDK.AWS.AppSync.Alpha" Version="2.50.0-alpha.0" />
+    <PackageReference Include="Amazon.CDK.Lib" Version="2.50.0" />
+    <PackageReference Include="Constructs" Version="10.1.148" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\schema.graphql">
+      <Link>schema.graphql</Link>
+    </Content>
+  </ItemGroup>
+
+</Project>
