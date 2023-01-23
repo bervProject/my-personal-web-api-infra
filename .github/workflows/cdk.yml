@@ -23,10 +23,10 @@ jobs:
     - name: Build/Compile Project
       run: dotnet build src
     - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          role-session-name: ${{ secrets.AWS_ROLE_SESSION_NAME }}
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        role-session-name: ${{ secrets.AWS_ROLE_SESSION_NAME }}
         aws-region: 'ap-southeast-3'
     - name: Install CDK
       run: |
