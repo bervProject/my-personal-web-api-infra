@@ -26,6 +26,7 @@ jobs:
     - name: Build/Compile Project
       run: dotnet build src
     - name: configure aws credentials
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
@@ -38,6 +39,7 @@ jobs:
     - name: Synth
       run: cdk synth
     - name: Diff
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: cdk diff
     - name: Deploy
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
