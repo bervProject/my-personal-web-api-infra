@@ -27,7 +27,7 @@ jobs:
       run: dotnet build src
     - name: configure aws credentials
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v2
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         role-session-name: ${{ secrets.AWS_ROLE_SESSION_NAME }}
