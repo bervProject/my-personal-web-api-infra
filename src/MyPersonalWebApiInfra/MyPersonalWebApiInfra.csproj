@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="Amazon.CDK.AWS.AppSync.Alpha" Version="2.50.0-alpha.0" />
-    <PackageReference Include="Amazon.CDK.Lib" Version="2.88.0" />
+    <PackageReference Include="Amazon.CDK.Lib" Version="2.89.0" />
     <PackageReference Include="Constructs" Version="10.2.69" />
   </ItemGroup>
 
