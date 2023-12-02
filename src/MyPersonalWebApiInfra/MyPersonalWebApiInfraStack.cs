@@ -45,7 +45,7 @@ namespace MyPersonalWebApiInfra
             var dataSource = api.AddDynamoDbDataSource("experience", experienceTable);
             
             // Add Resolver for Get All Experiences
-            dataSource.CreateResolver("get-experiences", new BaseResolverProps
+            dataSource.CreateResolver("getExperiences", new BaseResolverProps
             {
                 TypeName = "Query",
                 FieldName = "getExperiences",
@@ -54,7 +54,7 @@ namespace MyPersonalWebApiInfra
             });
 
             // Add Resolver for Get Experience by Id
-            dataSource.CreateResolver("get-experience-by-id", new BaseResolverProps
+            dataSource.CreateResolver("getExperienceById", new BaseResolverProps
             {
                 TypeName = "Query",
                 FieldName = "getExperienceById",
@@ -63,7 +63,7 @@ namespace MyPersonalWebApiInfra
             });
 
             // Add Resolver for Create Experience
-            dataSource.CreateResolver("add-experience", new BaseResolverProps
+            dataSource.CreateResolver("addExperience", new BaseResolverProps
             {
                 TypeName = "Mutation",
                 FieldName = "addExperience",
@@ -73,7 +73,7 @@ namespace MyPersonalWebApiInfra
             });
 
             // Add Resolver for Update an Experience
-            dataSource.CreateResolver("update-experience",new BaseResolverProps
+            dataSource.CreateResolver("updateExperience",new BaseResolverProps
             {
                 TypeName = "Mutation",
                 FieldName = "updateExperience",
@@ -93,7 +93,7 @@ namespace MyPersonalWebApiInfra
             });
 
             // Add Resolver for Delete an Experience
-            dataSource.CreateResolver("delete-experience", new BaseResolverProps
+            dataSource.CreateResolver("deleteExperience", new BaseResolverProps
             {
                 TypeName = "Mutation",
                 FieldName = "deleteExperience",
