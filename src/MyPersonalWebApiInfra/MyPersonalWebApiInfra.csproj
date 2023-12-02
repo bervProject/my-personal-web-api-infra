@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <!-- Roll forward to future major versions of the netcoreapp as needed -->
     <RollForward>Major</RollForward>
     <LangVersion>11</LangVersion>
@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Amazon.CDK.AWS.AppSync.Alpha" Version="2.50.0-alpha.0" />
-    <PackageReference Include="Amazon.CDK.Lib" Version="2.111.0" />
+    <PackageReference Include="Amazon.CDK.AWS.AppSync.Alpha" Version="2.59.0-alpha.0" />
+    <PackageReference Include="Amazon.CDK.Lib" Version="2.113.0" />
     <PackageReference Include="Constructs" Version="10.3.0" />
   </ItemGroup>
 

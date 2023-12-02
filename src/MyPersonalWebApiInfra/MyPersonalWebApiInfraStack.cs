@@ -15,7 +15,7 @@ namespace MyPersonalWebApiInfra
             var api = new GraphqlApi(this, "api", new GraphqlApiProps
             {
                 Name = "berv-api",
-                Schema = Schema.FromAsset("schema.graphql"),
+                Schema = SchemaFile.FromAsset("schema.graphql"),
                 XrayEnabled = true,
             });
 
@@ -45,7 +45,7 @@ namespace MyPersonalWebApiInfra
             var dataSource = api.AddDynamoDbDataSource("experience", experienceTable);
             
             // Add Resolver for Get All Experiences
-            dataSource.CreateResolver(new BaseResolverProps
+            dataSource.CreateResolver("get-experiences", new BaseResolverProps
             {
                 TypeName = "Query",
                 FieldName = "getExperiences",
@@ -54,7 +54,7 @@ namespace MyPersonalWebApiInfra
             });
 
             // Add Resolver for Get Experience by Id
-            dataSource.CreateResolver(new BaseResolverProps
+            dataSource.CreateResolver("get-experience-by-id", new BaseResolverProps
             {
                 TypeName = "Query",
                 FieldName = "getExperienceById",
@@ -63,7 +63,7 @@ namespace MyPersonalWebApiInfra
             });
 
             // Add Resolver for Create Experience
-            dataSource.CreateResolver(new BaseResolverProps
+            dataSource.CreateResolver("add-experience", new BaseResolverProps
             {
                 TypeName = "Mutation",
                 FieldName = "addExperience",
@@ -73,7 +73,7 @@ namespace MyPersonalWebApiInfra
             });
 
             // Add Resolver for Update an Experience
-            dataSource.CreateResolver(new BaseResolverProps
+            dataSource.CreateResolver("update-experience",new BaseResolverProps
             {
                 TypeName = "Mutation",
                 FieldName = "updateExperience",
@@ -93,7 +93,7 @@ namespace MyPersonalWebApiInfra
             });
 
             // Add Resolver for Delete an Experience
-            dataSource.CreateResolver(new BaseResolverProps
+            dataSource.CreateResolver("delete-experience", new BaseResolverProps
             {
                 TypeName = "Mutation",
                 FieldName = "deleteExperience",

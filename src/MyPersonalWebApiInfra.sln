@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34321.82
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPersonalWebApiInfra", "MyPersonalWebApiInfra\MyPersonalWebApiInfra.csproj", "{6BE45050-7736-4AC2-88D4-8F15D6A491AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPersonalWebApiInfra", "MyPersonalWebApiInfra\MyPersonalWebApiInfra.csproj", "{6BE45050-7736-4AC2-88D4-8F15D6A491AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10C6186A-AF5A-4EEC-ABF3-B31B617C7493}"
+	ProjectSection(SolutionItems) = preProject
+		..\cdk.json = ..\cdk.json
+		..\.github\workflows\cdk.yml = ..\.github\workflows\cdk.yml
+		..\.github\dependabot.yml = ..\.github\dependabot.yml
+		global.json = global.json
+		..\README.md = ..\README.md
+		..\schema.graphql = ..\schema.graphql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,9 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6BE45050-7736-4AC2-88D4-8F15D6A491AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +37,11 @@ Global
 		{6BE45050-7736-4AC2-88D4-8F15D6A491AD}.Release|x64.Build.0 = Release|Any CPU
 		{6BE45050-7736-4AC2-88D4-8F15D6A491AD}.Release|x86.ActiveCfg = Release|Any CPU
 		{6BE45050-7736-4AC2-88D4-8F15D6A491AD}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C523948-A0BB-4145-93A3-E725E1873DC4}
 	EndGlobalSection
 EndGlobal
